@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<div class="user-box">
+<%= image_tag @status.user.picture.url(:thumb), class: 'user' %>
+<%= link_to @status.user.fname, @status.user %>
+</div>
+<p>
+<%= @status.post %>
+</p>
+<%#= image_tag @status.user.picture.url if @status.user.picture.exists? %>
+<div class="<%= @status.class %>-<%= @status.id %>">
+<%= render 'shared/like_form', likeable: @status %>
+
+<div class="likes">
+	<%= pluralize(@status.likers(User).count, 'like') %>
+</div>
+<%= link_to pluralize(@comments.count, 'comment'), "#", class: 'comments' %>
+</div>
+<%= render :partial => 'shared/form', :locals => { :status => @status} %>
+<%= render @status.comments %>

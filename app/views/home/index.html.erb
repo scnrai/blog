@@ -1,0 +1,68 @@
+
+<h1><%= @message %></h1>
+
+<% if user_signed_in? %>
+<%= "#{current_user.fname}"  %>
+<%= image_tag current_user.picture.url %>
+<%= link_to "Download Resume", current_user.resume.url(:original, false) %>
+
+
+        <div class="large-2 columns ">
+          <div class="panel">
+            <%= image_tag current_user.picture.url %>
+            <%= "#{current_user.fname}"  %>
+              <div class="section-container vertical-nav" data-section data-options="deep_linking: false; one_up: true">
+              <section class="section">
+                <h5 class="title"><a href="#">Section 1</a></h5>
+              </section>
+              <section class="section">
+                <h5 class="title"><a href="#">Section 2</a></h5>
+              </section>
+              <section class="section">
+                <h5 class="title"><a href="#">Section 3</a></h5>
+              </section>
+              <section class="section">
+                <h5 class="title"><a href="#">Section 4</a></h5>
+              </section>
+              <section class="section">
+                <h5 class="title"><a href="#">Section 5</a></h5>
+              </section>
+              <section class="section">
+                <h5 class="title"><a href="#">Section 6</a></h5>
+              </section>
+            </div>
+     
+          </div>
+        </div>
+        
+         
+         
+        <div class="large-7 columns">
+     
+           
+          <div class="row">
+            <div class="large-2 columns small-3"><img src="http://placehold.it/80x80&text=[img]"/></div>
+            <div class="large-10 columns">
+			<div id="statuses"> 
+              <%= render :file => 'statuses/new' %>
+				<% @activities.each do |activity| %>
+					<%= render_activity(activity) %>
+				<% end %>
+				<%= render current_user.statuses.where("id IS NOT NULL").reverse %> 
+			</div>
+
+            </div>
+          </div>
+
+        </div>
+     
+         
+         
+        <aside class="large-3 columns hide-for-small">
+          <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
+          <p><img src="http://placehold.it/300x440&text=[ad]"/></p>
+        </aside>
+     
+    <% end %>  
+     
+     

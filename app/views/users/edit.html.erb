@@ -1,0 +1,41 @@
+
+<div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+<h1> Edit Profile </h1>
+<%=  form_for(@user, :url => editprofile_user_path(@user), :html=>{:multipart=>true}) do |f| %>
+<% if @user.errors.any? %>
+<div id="errorExplanation">
+<h2><%= pluralize(@user.errors.count, "error") %>
+prohibited this user from being saved:</h2>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+<div class="mb1">
+<%= f.label :fName %>
+<%= f.text_field :fname, autofocus: true %>
+</div>
+<div class="mb1">
+<%= f.label :lname %>
+<%= f.text_field :lname, autofocus: true %>
+</div>
+<div class="mb1">
+<%= f.label :email %>
+<%= f.text_field :email, autofocus: true %>
+</div>
+<div class="mb1">
+<%= f.label :picture %><br />
+<%= f.file_field :picture %>
+</div>
+<div class="mb1">
+<%= f.label :resume %><br />
+<%= f.file_field :resume %>
+</div>
+<%= f.hidden_field :id, :value => @user.id %>
+<div class="actions">
+<%= f.submit "Submit" %>
+</div>
+</div>
+<% end %>

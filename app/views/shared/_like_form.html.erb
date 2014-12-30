@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<div id="like_form">
+	<% if current_user.likes?(likeable) %>
+		<%= link_to "unlike", like_path(likeable_id: likeable.id, likeable_type: likeable.class) , remote: true, method: :get , class: "like" %>
+	<% else %>
+		<%= link_to "like", like_path(likeable_id: likeable.id, likeable_type: likeable.class) , remote: true, method: :get , class: "like" %>
+	<% end %>
+</div>
+<% end %>
+

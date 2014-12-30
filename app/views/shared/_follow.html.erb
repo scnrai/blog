@@ -1,0 +1,5 @@
+<% if current_user.follows?(user) %>
+<%= button_to "Follow", follow_path(user: user.id) , remote: true, method: :get , class: "button tiny" %>
+<% else %>
+<%= button_to "UnFollow", follow_path(user: user.id) , remote: true, method: :get , class: "button tiny" %>
+<% end %>

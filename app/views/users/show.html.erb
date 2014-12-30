@@ -1,0 +1,25 @@
+
+
+
+<h2> User Details </h2>
+<div class="left">
+<%= render 'shared/follow_form', user: @user %>
+</div>
+<%= div_for @user do %>
+	<br/><br/>
+	<div class="large-3 small-12 column">
+  <b>Profile Picture: </b><%=image_tag @user.picture.url%><br/>
+</div>
+<div class="large-9 small-12 column">
+	<h3><b>First Name:</b><%= @user.fname %> <br/>
+	<b>Last Name:	</b><%= @user.lname %> <br/>
+	<b>Email:	</b><%= @user.email %> <br/>
+	<b>User Creation Time: </b><%= @user.created_at %> <br/>
+		
+		<span class='actions'>
+			<%= link_to "Edit", edit_user_path(@user) %>
+			<%= link_to "Delete", @user, :confirm=> "Are you sure?", :method => :delete %>
+		</span>
+	</h3>
+	</div>
+<% end %>

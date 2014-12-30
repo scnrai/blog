@@ -1,0 +1,26 @@
+<br/>
+<ul>
+<ul class="inline-list">
+
+<li>Sort By:</li>
+
+<li><%= link_to "Fname", :user => "fname", :id => 'sort', :remote => true %></li>
+<li><%= link_to "ID", :user => "id", class: "sort", :remote => true %></li>
+</ul>
+
+<%= form_tag(admin_allusers_user_path, :method => "get", id: "search-form", :remote => true) do %>
+  <ul class="inline-list">
+  <li>
+
+  <%= text_field_tag :search, params[:search], placeholder: "Search Users" %></li>
+  <%#= submit_tag "Search", :name => nil %>
+  <li><button type="submit" value="Search" class="button tiny large radius">search</button></li>
+  </ul>
+<% end %>
+<div id="users" class="column">
+
+<%= render :partial => "user" %>
+
+</div>
+
+

@@ -1,0 +1,32 @@
+<table>
+  <tr>
+    <th>Email Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Created At</th>
+    <th>Picture</th>
+    <th>Resume</th>
+  </tr>
+
+<% @users.each do |user| %>
+		<h3>
+		<tr>
+		<td><%= link_to user.email, user %></td>
+		<td><%= user.fname %></td>
+		<td><%= user.lname %></td>
+		<td><%= user.created_at %></td>
+		<td><%= link_to "View Picture", user.picture.url(:original, false) %></td>
+		<td><%= link_to "Download Resume", user.resume.url(:original, false) %></td>
+		<td><span class='actions'>
+			<%= link_to "Edit", edit_user_path(user) %>
+			<% if (user.id!=1) %>
+			<%= link_to "Delete", user, :confirm=> "Are you sure?", :method => :delete %>
+			<% end %>
+		</span></td>
+		</tr>
+		
+		</h3>
+<% end %>
+</table>
+<%= will_paginate @users %>
+

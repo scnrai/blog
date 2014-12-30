@@ -1,0 +1,27 @@
+
+<%= div_for status do %>
+<%#= link_to "Status", user_status_path(status.id) %>
+<%#= "Posted at: #{status.posted_at}" %><br/>
+<%= status.post %>
+<% end %>
+<div class="<%= status.class %>-<%= status.id %>">
+
+
+<%= render 'shared/like_form', likeable: status %>
+
+<div class="likes">
+	<%= pluralize(status.likers(User).count, 'like') %>
+</div>
+<%= link_to pluralize(status.comments.count, 'comment'), "#", class: 'comments' %>
+</div>
+
+<div class="row">
+  
+               <div class="large-10 columns"><p>
+               <%= render status.comments %></p>
+              </div>
+	
+</div>
+<%= render :partial => 'shared/form', :locals => { :status => status } %>
+			  <hr/>
+			  

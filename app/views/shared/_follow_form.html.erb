@@ -1,0 +1,12 @@
+
+<% if current_user != user %>
+<div class="user-<%= user.id %>">
+	<div id="follow_form">
+	
+		<%= render 'shared/follow', user: user %>
+
+		<%# render 'shared/follow', user: user %>
+	
+	</div>
+</div>
+<% end %>

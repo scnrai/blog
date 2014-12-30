@@ -1,0 +1,13 @@
+<%= form_for([current_user,current_user.statuses.new ], :remote => true) do |f|%>
+<div class="field">
+<%= f.text_area :post, :cols => "50", :rows => "5", :placeholder => "Post Status" %>
+</div>
+<div class="field">
+<%= f.hidden_field :posted_at, :value => Time.now  %>
+</div>
+
+<div class="actions"> 
+ <%= f.submit 'post Status', class: "button small radius" %> 
+ </div>
+ 
+ <% end %>

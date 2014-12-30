@@ -1,0 +1,11 @@
+<% if activity.trackable %>
+<div class="user-box">
+<%#= image_tag activity.owner.picture.url(:thumb), class: 'like_profile' %>
+<img src="http://placehold.it/80x80&text=[img]"/>
+<%= link_to activity.owner.fname, activity.owner %>
+commented on post <%= link_to activity.trackable.likeable.class, user_status_path(activity.trackable.post) %>
+</div>
+<div class="like_post">
+<%= render 'comments/comment', comment: activity.trackable %>
+</div>
+<% end %>
