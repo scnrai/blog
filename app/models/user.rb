@@ -10,11 +10,11 @@ has_many :comments
   attr_accessible :email, :password, :password_confirmation, :remember_me, :fname, :lname, :picture, :resume
   # attr_accessible :title, :body
   
-  has_attached_file :picture, :default_url => ActionController::Base.helpers.asset_path(":style/missing.png")
+  has_attached_file :picture, :default_url => ActionController::Base.helpers.asset_path("missing.png")
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
   #validates_attachment_content_type :picture, :content_type => /\Aimage/
   
-   has_attached_file :resume, :default_url => ActionController::Base.helpers.asset_path(":style/missing.png")
+   has_attached_file :resume, :default_url => ActionController::Base.helpers.asset_path("missing.png")
  validates_attachment_content_type :resume, :content_type =>['application/pdf', 'application/xlsx'], :message => ', Only PDF, EXCEL, WORD or TEXT files are allowed. '
  #do_not_validate_attachment_file_type :resume
  #do_not_validate_attachment_file_type :picture
