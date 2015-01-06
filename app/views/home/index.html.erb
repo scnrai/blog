@@ -1,6 +1,7 @@
 
 <h1><%= @message %></h1>
 
+
 <% if user_signed_in? %>
 <%= "#{current_user.fname}"  %>
 <%= image_tag current_user.picture.url %>

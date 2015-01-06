@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	 before_filter :authenticate_user!, :only => [:edit, :update]
-
+	 @@totalmarks =  0
 	def admin_allusers
 		if (current_user.id==1)
 		@users=  User.paginate(:page => params[:page], :per_page => 5)
@@ -71,5 +71,31 @@ class UsersController < ApplicationController
 		end
 		current_user.toggle_like!(@likeable)
 	end
+	
+	def jsonuser
+		@users = User.all
+		render json: @users
+	
+	end
+	def quizrem
+		
+		if params[:answer].present?
+			answer  = Answer.find_by_id(params[:answer].to_i)
+			marks = answer.weightage
+			@@totalmarks = @@totalmarks + marks
+		end
+		
+		@totalmarks = @@totalmarks
+		id = params[:id].to_i + 1
+		@question = Question.find_by_id(id)
+		@@totalmarks = 0 if @question.nil?
+		 respond_to do |format|
+			format.js 
+		end
 
+	end
+	
+	def quiz
+		@users = User.all
+	end
 end

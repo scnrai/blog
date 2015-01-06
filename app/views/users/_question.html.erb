@@ -1,0 +1,14 @@
+
+<%= form_tag quizrem_path(:id => question.id), :remote => true do |f| %>
+	<b><%= question.id %></b>
+	<%= question.content %><br/>
+	<% question.answers.each do |answer| %>
+		<br><%= radio_button_tag 'answer', answer.id %> <%= answer.content %>
+	<% end %>
+	<br/>
+	<% if question.id == Question.last.id %>
+		<%= submit_tag "finish", class: "button tiny" %>
+	<% else %>
+		<%= submit_tag "next", class: "button tiny" %>
+	<% end %>
+<% end %>
