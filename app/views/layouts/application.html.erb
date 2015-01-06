@@ -14,7 +14,42 @@
 
 
   <body>
-  
+
+ 
+
+<script type="text/javascript">
+//window.onload = function() {
+//	var toppos = [0,50]
+//	var rand = pos[Math.floor(Math.random() * pos.length)];
+//	  document.getElementById("game").onclick = function() {
+//	var	pos=100;
+ //       document.getElementById("game").style.top=rand+"%"; 
+//		document.getElementById("game").style.left=rand+"%"; 
+//alert('hello');
+
+	
+	
+	function cg()
+	{ 
+	var m = document.getElementsByTagName('meta');
+	for (i=0; i<m.length; i++) { 
+      if (m[i].getAttribute("name") == "vieport") { 
+         return alert(m[i].getAttribute("content")); 
+      } 
+   } 
+	//alert(m.getAttribute(c);
+		var pos = [4,screen.width]
+	var rand = pos[Math.floor(Math.random() * pos.length)];
+	document.getElementById("game").style.top=rand+"px"; 
+	var rand = pos[Math.floor(Math.random() * pos.length)];
+	document.getElementById("game").style.left=rand+"px"; 
+	}
+	
+     
+//}
+</script>
+
+
   <div>
   <nav class="top-bar column" data-topbar>
  
@@ -35,6 +70,7 @@
 			<li><%= link_to "Change Password", change_password_user_path %></li>
 			<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 			<li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+			<li><%= link_to "Quiz", quiz_user_path %></li> 
 			<%else%>
 			<li><%= link_to "Login", new_user_session_path %></li>
 			<li><%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)%></li>
@@ -45,6 +81,7 @@
     </nav>
 </div>
  <div id="main-content" class="row full-min-height">
+
 <% if user_signed_in? %>
 	<% if current_user.id==1 %>
 		<%= "Welcome Admin" %>
@@ -63,8 +100,9 @@
       </div>
   </div>
 <%end%>
-	
-
+<div style="position: relative; width:100% id="divgame">
+	 <img id="game" src="assets/missing.png" alt="game image" style="position:absolute; z-index: 1; top:4px height:110px width:110px; left:4px" onclick=cg() />
+</div>
     <%= yield %>
  
     

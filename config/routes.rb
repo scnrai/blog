@@ -13,9 +13,15 @@ match 'like' => 'users#like'
 		get  'change_password', as:  "change_password"
 		put 'editprofile'
 		get 'admin_allusers'
+		get 'jsonuser'
+		get 'quiz'
+	
 		#get 'show', as: "show"
 	end
+	
   end
+  
+ match 'quizrem', to: "users#quizrem", :as  => "quizrem"
   resources :comments
    #match '/user/change_password' => "users#edit", :as => "change_password"
   #get '/user/:id' , to: "users#show", :as => "show"

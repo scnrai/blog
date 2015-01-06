@@ -1,0 +1,9 @@
+
+$('#quizload').hide();
+<% if @question.nil? %>
+	$('#questions').html('Thanks');
+	$('#questions').html(alert('Your Score : '+ <%= @totalmarks %>));
+<% else %>
+	$('#questions').html("<%= escape_javascript(render(:partial => 'question', :locals => {:question => @question})) %>");
+<% end %>
+
