@@ -1,8 +1,11 @@
 
+var old = parseInt($('#score').val());
+$('#score').val(old+<%= @marks %>);
+
 $('#quizload').hide();
 <% if @question.nil? %>
 	$('#questions').html('Thanks');
-	$('#questions').html(alert('Your Score : '+ <%= @totalmarks %>));
+	alert('Your Score..' + $('#score').val());
 <% else %>
 	$('#questions').html("<%= escape_javascript(render(:partial => 'question', :locals => {:question => @question})) %>");
 <% end %>
