@@ -15,8 +15,8 @@ original/missing.png: original/missing-ed74d7c37f4a87b64a07ac136fc8c695.png
 original/missing/index.png: original/missing-ed74d7c37f4a87b64a07ac136fc8c695.png
 rails.png: rails-71e944d9b39043eba50b77788c0d767f.png
 rails/index.png: rails-71e944d9b39043eba50b77788c0d767f.png
-application.js: application-e1f7480d9a261437ac0fb9b18cdae689.js
-application/index.js: application-e1f7480d9a261437ac0fb9b18cdae689.js
+application.js: application-117c0e17aefda6ae8728900daf8162e0.js
+application/index.js: application-117c0e17aefda6ae8728900daf8162e0.js
 application.css: application-aec291de373a244752effdc497ae84c2.css
 application/index.css: application-aec291de373a244752effdc497ae84c2.css
 jquery.min.map: jquery.min-c5a89be96c8d2def857e2657b2c155c0.map
