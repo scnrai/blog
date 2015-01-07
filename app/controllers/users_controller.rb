@@ -77,6 +77,7 @@ class UsersController < ApplicationController
 		render json: @users
 	
 	end
+<<<<<<< HEAD
 	
 	def quizrem
 		@marks = 0
@@ -84,6 +85,14 @@ class UsersController < ApplicationController
 			answer  = Answer.find_by_id(params[:answer].to_i)
 			@marks = answer.weightage
 			@@totalmarks = @@totalmarks + @marks
+=======
+	def quizrem
+		
+		if params[:answer].present?
+			answer  = Answer.find_by_id(params[:answer].to_i)
+			marks = answer.weightage
+			@@totalmarks = @@totalmarks + marks
+>>>>>>> origin/master
 		end
 		
 		@totalmarks = @@totalmarks

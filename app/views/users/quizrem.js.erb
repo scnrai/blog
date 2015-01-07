@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 var old = parseInt($('#score').val());
 $('#score').val(old+<%= @marks %>);
 
@@ -6,6 +7,12 @@ $('#quizload').hide();
 <% if @question.nil? %>
 	$('#questions').html('Thanks');
 	alert('Your Score..' + $('#score').val());
+=======
+$('#quizload').hide();
+<% if @question.nil? %>
+	$('#questions').html('Thanks');
+	$('#questions').html(alert('Your Score : '+ <%= @totalmarks %>));
+>>>>>>> origin/master
 <% else %>
 	$('#questions').html("<%= escape_javascript(render(:partial => 'question', :locals => {:question => @question})) %>");
 <% end %>
